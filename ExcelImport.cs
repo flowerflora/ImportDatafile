@@ -23,6 +23,7 @@ namespace WindowsFormsApp1
 
             //Reading from a OpenXml Excel file (2007 format; *.xlsx)
             IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+
             //IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
 
             //...
