@@ -12,9 +12,17 @@ namespace WindowsFormsApp1
 {
     public partial class ImportExcelData : Form
     {
+        Data _frmData = new Data();
+        string _file = string.Empty;
+
         public ImportExcelData()
         {
             InitializeComponent();
+        }
+
+        public ImportExcelData(Data d)
+        {
+            _frmData = d;
         }
 
         private void ImportExcelData_Load(object sender, EventArgs e)
@@ -36,17 +44,20 @@ namespace WindowsFormsApp1
         {
             OpenFileDialog openDialog = new OpenFileDialog();
             openDialog.Title = "Select An Excel File";
-            openDialog.Filter = "Excel (*.xlsx)|*.xls" + "|" +
+            openDialog.Filter = "Excel 7.0 (*.xlsx)|*.xlsx" + "|" +
+                                "Excel (*.xls)|*.xls" + "|" +
+                                "CSV (*.csv)|*.csv" + "|" +
                                 "All Files (*.*)|*.*";
             if (openDialog.ShowDialog() == DialogResult.OK)
             {
-                this.txtFile.Text = openDialog.FileName;
+                _file = openDialog.FileName;
+                this.txtFile.Text = _file;
             }
         }
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-
+            _frmData.ExcelData = ExcelImport.GetExcelData(_file);
         }
     }
 }

@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Login : Form
+    public partial class Data : Form
     {
         private DataSet _dsData = null;
 
-        public Login()
+        public Data()
         {
             InitializeComponent();
         }
@@ -47,7 +47,7 @@ namespace WindowsFormsApp1
         private void btnImport_Click(object sender, EventArgs e)
         {
             ImportExcelData frmImport = new ImportExcelData();
-            frmImport.ShowDialog();
+            frmImport.ShowDialog(this);
         }
     }
 }
