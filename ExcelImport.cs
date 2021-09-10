@@ -18,29 +18,33 @@ namespace WindowsFormsApp1
 
             FileStream stream = File.Open(file, FileMode.Open, FileAccess.Read);
 
-            //1. Reading from a binary Excel file ('97-2003 format; *.xls)
+            //Reading from a binary Excel file ('97-2003 format; *.xls)
             //IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);
-            //...
-            //2. Reading from a OpenXml Excel file (2007 format; *.xlsx)
+
+            //Reading from a OpenXml Excel file (2007 format; *.xlsx)
             IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+            //IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+
             //...
             //3. DataSet - The result of each spreadsheet will be created in the result.Tables
             //DataSet result = (DataSet)excelReader;
             //...
             //4. DataSet - Create column names from first row
             //excelReader.IsFirstRowAsColumnNames = true;
-            //DataSet result = excelReader.AsDataSet();
+            
+            ds = excelReader.AsDataSet();
 
+            //dt.Load(excelReader);
             //5. Data Reader methods
-            while (excelReader.Read())
-            {
+
+            //while (excelReader.Read())
+            //{
                 //excelReader.GetInt32(0);
-            }
+            //}
 
             //6. Free resources (IExcelDataReader is IDisposable)
             excelReader.Close();
             return ds;
-
         }
 
         public static DataSet GetExcelData3(string file)
