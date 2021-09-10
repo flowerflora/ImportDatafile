@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExcelImport.cs" />
     <Compile Include="ImportExcelData.cs">
       <SubType>Form</SubType>
     </Compile>

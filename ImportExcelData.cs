@@ -20,6 +20,33 @@ namespace WindowsFormsApp1
         private void ImportExcelData_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
+            this.SetControls();
+        }
+
+        private void SetControls()
+        {
+            //Form
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            //Label
+            this.lblFile.Text = "Selected File";
+        }
+
+        private void btnOpenFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Title = "Select An Excel File";
+            openDialog.Filter = "Excel (*.xlsx)|*.xls" + "|" +
+                                "All Files (*.*)|*.*";
+            if (openDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.txtFile.Text = openDialog.FileName;
+            }
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

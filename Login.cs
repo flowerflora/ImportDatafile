@@ -32,6 +32,9 @@ namespace WindowsFormsApp1
 
         private void SetControls()
         {
+            //Form
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
             //Labels
             this.lblSearch.Text = "Search Criteria";
         }
