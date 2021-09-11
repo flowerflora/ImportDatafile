@@ -7,22 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Models;
 
 namespace WindowsFormsApp1
 {
     public partial class ImportExcelData : Form
     {
-        Data _frmData = new Data();
+
+        //Delegate will update the DataGridView in the Data Form
+        public delegate void UpdateDataGridView(object sender, UpdateDataGridViewEventArgs e);
+
         string _file = string.Empty;
 
         public ImportExcelData()
         {
             InitializeComponent();
-        }
-
-        public ImportExcelData(Data d)
-        {
-            _frmData = d;
         }
 
         private void ImportExcelData_Load(object sender, EventArgs e)
@@ -48,6 +47,7 @@ namespace WindowsFormsApp1
                                 "Excel (*.xls)|*.xls" + "|" +
                                 "CSV (*.csv)|*.csv" + "|" +
                                 "All Files (*.*)|*.*";
+
             if (openDialog.ShowDialog() == DialogResult.OK)
             {
                 _file = openDialog.FileName;
@@ -57,7 +57,7 @@ namespace WindowsFormsApp1
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-            _frmData.ExcelData = ExcelImport.GetExcelData(_file);
+           DataSet ds = ExcelImport.GetExcelData(_file);
         }
     }
 }

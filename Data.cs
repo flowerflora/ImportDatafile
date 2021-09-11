@@ -25,11 +25,6 @@ namespace WindowsFormsApp1
             this.SetControls();
         }
 
-        public DataSet ExcelData 
-        {
-            set { _dsData = value; } 
-        }
-
         private void SetControls()
         {
             //Form
