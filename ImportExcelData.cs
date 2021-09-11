@@ -13,10 +13,19 @@ namespace WindowsFormsApp1
 {
     public partial class ImportExcelData : Form
     {
+        //****************************************************
+        //A Delegate is similar to a POINTER. They are used to 
+        //implement events
+        //****************************************************
 
-        //Delegate will update the DataGridView in the Data Form
-        public delegate void UpdateDataGridView(object sender, UpdateDataGridViewEventArgs e);
+        //Delegate is created to update the DataGridView in the Data Form
+        public delegate void UpdateDataGridViewHandler(object sender, 
+                                                       UpdateDataGridViewEventArgs e);
 
+        //Event
+        public event UpdateDataGridViewHandler UpdateDataGridView;
+
+        //Variables
         string _file = string.Empty;
 
         public ImportExcelData()
@@ -42,6 +51,7 @@ namespace WindowsFormsApp1
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
             OpenFileDialog openDialog = new OpenFileDialog();
+
             openDialog.Title = "Select An Excel File";
             openDialog.Filter = "Excel 7.0 (*.xlsx)|*.xlsx" + "|" +
                                 "Excel (*.xls)|*.xls" + "|" +
@@ -57,7 +67,15 @@ namespace WindowsFormsApp1
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-           DataSet ds = ExcelImport.GetExcelData(_file);
+            DataSet ds = ExcelImport.GetExcelData(_file);
+
+            UpdateDataGridViewEventArgs args = new UpdateDataGridViewEventArgs(ds);
+            UpdateDataGridView(this, args);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

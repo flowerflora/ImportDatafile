@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Models;
 
 namespace WindowsFormsApp1
 {
@@ -41,8 +36,40 @@ namespace WindowsFormsApp1
 
         private void btnImport_Click(object sender, EventArgs e)
         {
+            //Create Instance of the Import Excel Form
             ImportExcelData frmImport = new ImportExcelData();
-            frmImport.ShowDialog(this);
+
+            //Access the Event which is used by the Delegate
+            frmImport.UpdateDataGridView += new ImportExcelData.UpdateDataGridViewHandler(PopulateDataGridView);
+            //Show the form
+            frmImport.ShowDialog();
+        }
+
+        private void PopulateDataGridView(object sender, UpdateDataGridViewEventArgs e)
+        {
+            //Create DataTable
+            DataTable dt = e.GetExcelDataSet.Tables[0];
+
+            //Get Column Names from DataTable
+            int index = 0;
+            foreach(DataColumn dc in dt.Columns)
+            {
+                dc.ColumnName = dt.Rows[0][index].ToString();
+                index++;
+            }
+
+            //**********************************************
+            //Delete first row which contains column headers
+            //**********************************************
+            //Create a DataRow
+            DataRow[] dr = dt.Select();
+            //Delete The first Row
+            dr[0].Delete();
+            //Have the DataTable Accept the Changes
+            dt.AcceptChanges();
+
+            //Set the DataSource of the DataGridView to the DataTable
+            this.grdData.DataSource = dt;
         }
     }
 }
