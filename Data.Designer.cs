@@ -34,6 +34,7 @@ namespace WindowsFormsApp1
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.grdData = new System.Windows.Forms.DataGridView();
             this.btnImport = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +53,7 @@ namespace WindowsFormsApp1
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(99, 20);
             this.btnSearch.TabIndex = 1;
-            this.btnSearch.Text = "Submit";
+            this.btnSearch.Text = "&Submit";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -74,19 +75,29 @@ namespace WindowsFormsApp1
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(24, 17);
+            this.btnImport.Location = new System.Drawing.Point(20, 12);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(500, 23);
+            this.btnImport.Size = new System.Drawing.Size(504, 23);
             this.btnImport.TabIndex = 4;
             this.btnImport.Text = "Import Excel Data";
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(449, 252);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.TabIndex = 5;
+            this.btnExport.Text = "&Export";
+            this.btnExport.UseVisualStyleBackColor = true;
+            // 
             // Data
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 260);
+            this.ClientSize = new System.Drawing.Size(542, 286);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.grdData);
             this.Controls.Add(this.txtSearch);
@@ -108,6 +119,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView grdData;
         private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.Button btnExport;
     }
 }
 
