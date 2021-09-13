@@ -48,6 +48,7 @@ namespace WindowsFormsApp1
             //**********************************************************************
             //This method is accessed from the ImportExcelData form via the delegate
             //**********************************************************************
+
             //Create DataTable
             DataTable dt = e.GetExcelDataSet.Tables[0];
 
@@ -71,9 +72,18 @@ namespace WindowsFormsApp1
                 new Font(new FontFamily("Arial"), 12, FontStyle.Bold);
 
             //Autosize the coulumns
-            this.grdData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells; 
-            
-            //Center Column Headers to the Middle
+            this.grdData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+            /*
+            int maxCols = grdData.Columns.Count;
+            for (int i = 0; i < maxCols; i++)
+            {
+                this.grdData.Columns[i].HeaderCell.Style.Alignment =
+                    DataGridViewContentAlignment.MiddleCenter;
+            }
+            */
+
+            /*
             this.grdData.Columns["Policy"].HeaderCell.Style.Alignment =
                 DataGridViewContentAlignment.MiddleRight;
             this.grdData.Columns["Expiry"].HeaderCell.Style.Alignment = 
@@ -94,7 +104,7 @@ namespace WindowsFormsApp1
                 DataGridViewContentAlignment.MiddleRight;
             this.grdData.Columns["Flood"].HeaderCell.Style.Alignment =
                 DataGridViewContentAlignment.MiddleRight;
-
+            */
 
         }
 
@@ -113,7 +123,6 @@ namespace WindowsFormsApp1
             //Align Right
             this.grdData.Columns["InsuredValue"].DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleRight;
-
         }
 
         private DataTable ProcessDataSet(DataTable dt)
