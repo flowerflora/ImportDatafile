@@ -152,7 +152,7 @@ namespace WindowsFormsApp1
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            string s = "test";
         }
 
         private void btnClose_Click(object sender, EventArgs e)
