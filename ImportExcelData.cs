@@ -20,11 +20,11 @@ namespace WindowsFormsApp1
 
         //Delegate is created to update the DataGridView in the Data Form
         //The "UpdateDataGridViewEventArgs" is a CLASS we create in the Events Folder
-        public delegate void UpdateDataGridViewHandler(object sender, 
-                                                       UpdateDataGridViewEventArgs e);
+        public delegate void UpdateDGVHandler(object sender, 
+                                              UpdateDataGridViewEventArgs e);
 
         //Event
-        public event UpdateDataGridViewHandler UpdateDataGridView;
+        public event UpdateDGVHandler UpdateDataGridView;
 
         //Variables
         string _file = string.Empty;

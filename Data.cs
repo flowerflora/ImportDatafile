@@ -42,7 +42,7 @@ namespace WindowsFormsApp1
             //This will cause the Deletegate on the ImportExcewlData Form
             //To access the method on this Form
             frmImport.UpdateDataGridView += 
-                new ImportExcelData.UpdateDataGridViewHandler(PopulateDataGridView);
+                new ImportExcelData.UpdateDGVHandler(PopulateDataGridView);
             //Show the form
             frmImport.ShowDialog();
         }
