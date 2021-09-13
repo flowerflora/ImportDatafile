@@ -29,80 +29,103 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Data));
             this.lblSearch = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.grdData = new System.Windows.Forms.DataGridView();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
+            this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.Location = new System.Drawing.Point(17, 51);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(76, 13);
+            this.lblSearch.Size = new System.Drawing.Size(133, 24);
             this.lblSearch.TabIndex = 0;
             this.lblSearch.Text = "Search Criteria";
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(425, 67);
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.Green;
+            this.btnSearch.Location = new System.Drawing.Point(615, 79);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(99, 20);
+            this.btnSearch.Size = new System.Drawing.Size(99, 35);
             this.btnSearch.TabIndex = 1;
-            this.btnSearch.Text = "&Submit";
+            this.btnSearch.Text = "&Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(20, 67);
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(20, 79);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(399, 20);
+            this.txtSearch.Size = new System.Drawing.Size(589, 35);
             this.txtSearch.TabIndex = 2;
             // 
             // grdData
             // 
             this.grdData.AllowUserToOrderColumns = true;
             this.grdData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdData.Location = new System.Drawing.Point(20, 96);
+            this.grdData.Location = new System.Drawing.Point(20, 123);
             this.grdData.Name = "grdData";
-            this.grdData.Size = new System.Drawing.Size(504, 150);
+            this.grdData.Size = new System.Drawing.Size(694, 150);
             this.grdData.TabIndex = 3;
             // 
             // btnImport
             // 
+            this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImport.ForeColor = System.Drawing.Color.Red;
             this.btnImport.Location = new System.Drawing.Point(20, 12);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(504, 23);
+            this.btnImport.Size = new System.Drawing.Size(694, 36);
             this.btnImport.TabIndex = 4;
-            this.btnImport.Text = "Import Excel Data";
+            this.btnImport.Text = "&Import Excel Data";
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(449, 252);
+            this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.ForeColor = System.Drawing.Color.Purple;
+            this.btnExport.Location = new System.Drawing.Point(21, 280);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.Size = new System.Drawing.Size(75, 34);
             this.btnExport.TabIndex = 5;
             this.btnExport.Text = "&Export";
             this.btnExport.UseVisualStyleBackColor = true;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(639, 280);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 34);
+            this.btnClose.TabIndex = 6;
+            this.btnClose.Text = "&Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // Data
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(542, 286);
+            this.ClientSize = new System.Drawing.Size(726, 326);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.grdData);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lblSearch);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Data";
             this.Text = "Excel Data";
             this.Load += new System.EventHandler(this.Login_Load);
@@ -120,6 +143,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridView grdData;
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Button btnClose;
     }
 }
 

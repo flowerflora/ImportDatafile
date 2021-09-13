@@ -73,12 +73,18 @@ namespace WindowsFormsApp1
 
         private void btnImport_Click(object sender, EventArgs e)
         {
+            //Change cursor
+            Cursor.Current = Cursors.WaitCursor;
+
             DataSet ds = ExcelImport.GetExcelData(_file);
 
             //Event Class which is used with the Delegates
             UpdateDataGridViewEventArgs args = new UpdateDataGridViewEventArgs(ds);
             //Event
             UpdateDataGridView(this, args);
+            
+            //Return cursor
+            Cursor.Current = Cursors.WaitCursor;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
