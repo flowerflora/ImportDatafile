@@ -15,7 +15,8 @@ namespace WindowsFormsApp1
     {
         //****************************************************
         //A Delegate is similar to a POINTER. They are used to 
-        //implement events. For this example, 
+        //implement events. For this example, the delegate
+        //"UpdateDGVHandler" is wired to the Data.cs form.
         //****************************************************
 
         //Delegate is created to update the DataGridView in the Data Form
