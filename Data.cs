@@ -8,10 +8,6 @@ namespace WindowsFormsApp1
 {
     public partial class Data : Form
     {
-        private DataSet _dsData = null;
-
-        public object FontSytle { get; private set; }
-
         public Data()
         {
             InitializeComponent();
