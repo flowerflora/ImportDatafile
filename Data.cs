@@ -73,39 +73,6 @@ namespace WindowsFormsApp1
 
             //Autosize the coulumns
             this.grdData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
-            /*
-            int maxCols = grdData.Columns.Count;
-            for (int i = 0; i < maxCols; i++)
-            {
-                this.grdData.Columns[i].HeaderCell.Style.Alignment =
-                    DataGridViewContentAlignment.MiddleCenter;
-            }
-            */
-
-            /*
-            this.grdData.Columns["Policy"].HeaderCell.Style.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
-            this.grdData.Columns["Expiry"].HeaderCell.Style.Alignment = 
-                DataGridViewContentAlignment.MiddleRight;
-            this.grdData.Columns["Location"].HeaderCell.Style.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
-            this.grdData.Columns["State"].HeaderCell.Style.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
-            this.grdData.Columns["Region"].HeaderCell.Style.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
-            this.grdData.Columns["InsuredValue"].HeaderCell.Style.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
-            this.grdData.Columns["Construction"].HeaderCell.Style.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
-            this.grdData.Columns["BusinessType"].HeaderCell.Style.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
-            this.grdData.Columns["Earthquake"].HeaderCell.Style.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
-            this.grdData.Columns["Flood"].HeaderCell.Style.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
-            */
-
         }
 
         private void FormatDataGridViewColumns()
