@@ -43,7 +43,7 @@ namespace WindowsFormsApp1
             this.btnOpenFile.ForeColor = System.Drawing.Color.Red;
             this.btnOpenFile.Location = new System.Drawing.Point(15, 17);
             this.btnOpenFile.Name = "btnOpenFile";
-            this.btnOpenFile.Size = new System.Drawing.Size(358, 35);
+            this.btnOpenFile.Size = new System.Drawing.Size(604, 35);
             this.btnOpenFile.TabIndex = 0;
             this.btnOpenFile.Text = "&Open File";
             this.btnOpenFile.UseVisualStyleBackColor = true;
@@ -64,7 +64,7 @@ namespace WindowsFormsApp1
             this.txtFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFile.Location = new System.Drawing.Point(15, 81);
             this.txtFile.Name = "txtFile";
-            this.txtFile.Size = new System.Drawing.Size(358, 24);
+            this.txtFile.Size = new System.Drawing.Size(604, 24);
             this.txtFile.TabIndex = 2;
             // 
             // btnImport
@@ -73,7 +73,7 @@ namespace WindowsFormsApp1
             this.btnImport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnImport.Location = new System.Drawing.Point(12, 111);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(361, 32);
+            this.btnImport.Size = new System.Drawing.Size(607, 32);
             this.btnImport.TabIndex = 3;
             this.btnImport.Text = "&Import";
             this.btnImport.UseVisualStyleBackColor = true;
@@ -82,7 +82,7 @@ namespace WindowsFormsApp1
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(298, 149);
+            this.btnClose.Location = new System.Drawing.Point(544, 149);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 31);
             this.btnClose.TabIndex = 4;
@@ -94,7 +94,7 @@ namespace WindowsFormsApp1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 188);
+            this.ClientSize = new System.Drawing.Size(631, 188);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.txtFile);

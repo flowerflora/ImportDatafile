@@ -13,11 +13,11 @@ namespace WindowsFormsApp1
 {
     public partial class ImportExcelData : Form
     {
-        //****************************************************
-        //A Delegate is similar to a POINTER. They are used to 
-        //implement events. For this example, the delegate
-        //"UpdateDGVHandler" is wired to the Data.cs form.
-        //****************************************************
+        //*****************************************************
+        // A Delegate is similar to a POINTER. They are used to 
+        // implement events. For this example, the delegate
+        // "UpdateDGVHandler" is wired to the Data.cs form.
+        //*****************************************************
 
         //Delegate is created to update the DataGridView in the Data Form
         //The "UpdateDataGridViewEventArgs" is a CLASS we create in the Events Folder
@@ -45,9 +45,14 @@ namespace WindowsFormsApp1
         {
             //Form
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
 
             //Label
             this.lblFile.Text = "Selected File";
+
+            //TextBox
+            this.txtFile.Enabled = false;
         }
 
         private void btnOpenFile_Click(object sender, EventArgs e)
@@ -74,18 +79,18 @@ namespace WindowsFormsApp1
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-            //Change cursor
+            //Change cursor to wait
             Cursor.Current = Cursors.WaitCursor;
 
             DataSet ds = ExcelImport.GetExcelData(_file);
 
-            //Event Class which is used with the Delegates
+            //Event Class which is used with the Delegate
             UpdateDataGridViewEventArgs args = new UpdateDataGridViewEventArgs(ds);
             //Event
             UpdateDataGridView(this, args);
             
-            //Return cursor
-            Cursor.Current = Cursors.WaitCursor;
+            //Return cursor to default
+            Cursor.Current = Cursors.Default;
         }
 
         private void btnClose_Click(object sender, EventArgs e)

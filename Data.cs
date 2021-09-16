@@ -23,6 +23,8 @@ namespace WindowsFormsApp1
         {
             //Form
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
 
             //Labels
             this.lblSearch.Text = "Search Criteria";
