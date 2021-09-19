@@ -94,14 +94,14 @@ namespace WindowsFormsApp1
 
         private bool PerformValidation()
         {
-            if (String.IsNullOrEmpty(this.txtLocation.Text))
+            if (String.IsNullOrEmpty(this.txtLocation.Text.Trim()))
             {
                 MessageBox.Show("Directory must be provided!",
                                 Titles.MessageBoxTitle,
                                 MessageBoxButtons.OK);
                 return false;
             }
-            else if (String.IsNullOrEmpty(this.txtFileName.Text))
+            else if (String.IsNullOrEmpty(this.txtFileName.Text.Trim()))
             {
                 MessageBox.Show("A File Name must be provided!",
                                 Titles.MessageBoxTitle,
