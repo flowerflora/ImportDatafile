@@ -93,6 +93,12 @@
     <Compile Include="ExportData.Designer.cs">
       <DependentUpon>ExportData.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImportXMLData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportXMLData.Designer.cs">
+      <DependentUpon>ImportXMLData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Titles.cs" />
     <Compile Include="Services\ImportExcel.cs" />
     <Compile Include="ImportExcelData.cs">
@@ -112,8 +118,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ExportExcel.cs" />
     <Compile Include="Services\ExportXML.cs" />
+    <Compile Include="Services\ImportXML.cs" />
     <EmbeddedResource Include="ExportData.resx">
       <DependentUpon>ExportData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportXMLData.resx">
+      <DependentUpon>ImportXMLData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ImportExcelData.resx">
       <DependentUpon>ImportExcelData.cs</DependentUpon>

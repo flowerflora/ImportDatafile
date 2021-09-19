@@ -16,7 +16,7 @@ namespace WindowsFormsApp1.Events
             _ds = d;
         }
 
-        public DataSet GetExcelDataSet
+        public DataSet GetDataSet
         {
             get
             {
