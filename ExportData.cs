@@ -9,6 +9,7 @@ namespace WindowsFormsApp1
     public partial class ExportData : Form
     {
         DataTable _dt = new DataTable();
+        bool _success = false;
 
         public ExportData()
         {
@@ -49,15 +50,22 @@ namespace WindowsFormsApp1
             if (!this.PerformValidation())
                 return;
 
-            if (this.rbExcel.Checked)
-                ext = ".xlsx";
-            else if (this.rbXML.Checked)
-                ext = ".xml";
-
             file = this.txtLocation.Text + "\\" +
-                    this.txtFileName.Text.Trim() + ext;
+                   this.txtFileName.Text.Trim();
 
-             if (ExportExcel.ExportExcelData(_dt, file))
+            if (this.rbExcel.Checked)
+            {
+                file += ".xlsx";
+                _success = ExportExcel.ExportExcelData(_dt, file);
+            }
+            else if (this.rbXML.Checked)
+            {
+                file += ".xml";
+                _success = ExportXML.ExportXMLData(_dt, file);
+            }
+
+
+             if (_success)
             {
                 MessageBox.Show("Export " + file + " was successful!",
                                 Titles.MessageBoxTitle,
