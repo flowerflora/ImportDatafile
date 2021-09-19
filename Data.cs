@@ -3,6 +3,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsApp1.Events;
+using WindowsFormsApp1.Models;
 
 namespace WindowsFormsApp1
 {
@@ -127,6 +128,30 @@ namespace WindowsFormsApp1
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (!this.ValidateData())
+                return;
+
+            ExportData exportData = new ExportData();
+            exportData.Data = (DataTable)this.grdData.DataSource;
+            exportData.ShowDialog();
+        }
+
+        private bool ValidateData()
+        {
+            
+            if (this.grdData == null || this.grdData.Rows.Count == 0)
+            {
+                MessageBox.Show("There is no data to export!",
+                                Titles.MessageBoxTitle,
+                                MessageBoxButtons.OK);
+                return false;
+            }
+
+            return true;
         }
     }
 }

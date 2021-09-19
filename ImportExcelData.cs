@@ -82,7 +82,7 @@ namespace WindowsFormsApp1
             //Change cursor to wait
             Cursor.Current = Cursors.WaitCursor;
 
-            DataSet ds = ExcelImport.GetExcelData(_file);
+            DataSet ds = ImportExcel.GetExcelData(_file);
 
             //Event Class which is used with the Delegate
             UpdateDataGridViewEventArgs args = new UpdateDataGridViewEventArgs(ds);
