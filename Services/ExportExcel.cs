@@ -6,6 +6,12 @@ using System.Data;
 namespace WindowsFormsApp1.Services
 {
     /******************************************************************
+     * INTEROP is often used to work with Microsoft Office Documents
+     * If a user does NOT have Microsoft Office installed the user
+     * will encounter an error. Using OpenXML will allow a user
+     * to export Microsoft Office Documents which can be viewed with
+     * Google Docs/Sheets, etc.
+     * 
      * OpenXML
      * https://docs.microsoft.com/en-us/dotnet/api/documentformat.openxml.spreadsheet.worksheet?view=openxml-2.8.1
      * Microsoft Document Viewer
