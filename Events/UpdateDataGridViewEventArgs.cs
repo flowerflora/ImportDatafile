@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1.Events
 {
+    /************************************
+     * Custom EVENT Class
+     * **********************************/
+
     public class UpdateDataGridViewEventArgs : EventArgs
     {
         private DataSet _ds = null;
