@@ -177,5 +177,11 @@ namespace WindowsFormsApp1
 
             return true;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Temp t = new Temp();
+            t.ShowDialog();
+        }
     }
 }

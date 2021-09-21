@@ -119,6 +119,12 @@
     <Compile Include="Services\ExportExcel.cs" />
     <Compile Include="Services\ExportXML.cs" />
     <Compile Include="Services\ImportXML.cs" />
+    <Compile Include="Temp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Temp.Designer.cs">
+      <DependentUpon>Temp.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ExportData.resx">
       <DependentUpon>ExportData.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +146,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Temp.resx">
+      <DependentUpon>Temp.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
