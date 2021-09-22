@@ -3,14 +3,11 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsApp1.Events;
-using WindowsFormsApp1.Models;
 
 namespace WindowsFormsApp1
 {
     public partial class Data : Form
     {
-        bool _isExcel = false;
-
         public Data()
         {
             InitializeComponent();
@@ -33,36 +30,17 @@ namespace WindowsFormsApp1
             this.lblSearch.Text = "Search Criteria";
         }
 
-        private void btnImportExcel_Click(object sender, EventArgs e)
+        private void btnImport_Click(object sender, EventArgs e)
         {
-            _isExcel = true;
-
             //Create Instance of the Import Excel Form
             ImportExcelData frmImport = new ImportExcelData();
 
             //Access the Event which is used by the Delegate
             //Pass in a method on THIS FORM to the ImportExcelData Form
-            //This will cause the Deletegate on the ImportExcelData Form
+            //This will cause the Deletegate on the ImportExcewlData Form
             //To access the method on this Form
             frmImport.UpdateDataGridView += 
                 new ImportExcelData.UpdateDGVHandler(PopulateDataGridView);
-            //Show the form
-            frmImport.ShowDialog();
-        }
-
-        private void btnImportXML_Click(object sender, EventArgs e)
-        {
-            _isExcel = false;
-
-            //Create Instance of the Import XML Form
-            ImportXMLData frmImport = new ImportXMLData();
-
-            //Access the Event which is used by the Delegate
-            //Pass in a method on THIS FORM to the ImportXMLData Form
-            //This will cause the Deletegate on the ImportXMLData Form
-            //To access the method on this Form
-            frmImport.UpdateDataGridView +=
-                new ImportXMLData.UpdateDGVHandler(PopulateDataGridView);
             //Show the form
             frmImport.ShowDialog();
         }
@@ -118,9 +96,6 @@ namespace WindowsFormsApp1
 
         private DataTable ProcessDataSet(DataTable dt)
         {
-            if (!_isExcel)
-                return dt;
-
             //Variable
             int index = 0;
 
@@ -152,36 +127,6 @@ namespace WindowsFormsApp1
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Dispose();
-        }
-
-        private void btnExport_Click(object sender, EventArgs e)
-        {
-            if (!this.ValidateData())
-                return;
-
-            ExportData exportData = new ExportData();
-            exportData.Data = (DataTable)this.grdData.DataSource;
-            exportData.ShowDialog();
-        }
-
-        private bool ValidateData()
-        {
-            
-            if (this.grdData == null || this.grdData.Rows.Count == 0)
-            {
-                MessageBox.Show("There is no data to export!",
-                                Titles.MessageBoxTitle,
-                                MessageBoxButtons.OK);
-                return false;
-            }
-
-            return true;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Temp t = new Temp();
-            t.ShowDialog();
         }
     }
 }
