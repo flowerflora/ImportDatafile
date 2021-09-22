@@ -5,18 +5,16 @@ using System.Data;
 
 namespace WindowsFormsApp1.Services
 {
-    /******************************************************************
-     * INTEROP is often used to work with Microsoft Office Documents
-     * If a user does NOT have Microsoft Office installed the user
-     * will encounter an error. Using OpenXML will allow a user
-     * to export Microsoft Office Documents which can be viewed with
-     * Google Docs/Sheets, etc.
+    /*********************************************************************************************************
+     * INTEROP is often used to work with Microsoft Office Documents. If a user does NOT have Microsoft Office 
+     * installed, the user will encounter an error. Using OpenXML will allow a user to export Microsoft Office 
+     * Documents which can be viewed with Google Docs/Sheets, etc.
      * 
-     * OpenXML
+     * OpenXML Information
      * https://docs.microsoft.com/en-us/dotnet/api/documentformat.openxml.spreadsheet.worksheet?view=openxml-2.8.1
      * Microsoft Document Viewer
      * https://products.groupdocs.app/viewer/excel#:~:text=How%20to%20view%20Excel%20files%20online.%201%20Click,file%20pages%20in%20PNG%20or%20PDF%20format.%20
-     ******************************************************************/
+     *********************************************************************************************************/
 
     public class ExportExcel
     {
