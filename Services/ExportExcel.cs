@@ -20,14 +20,14 @@ namespace WindowsFormsApp1.Services
 
     public class ExportExcel
     {
-        static WorkbookPart wkbkPart;
+        //static WorkbookPart wkbkPart;
 
         public static bool ExportExcelData(DataTable dt, string file)
         {
             //Excel Workbook
             using (var excelWorkBook = SpreadsheetDocument.Create(file, DocumentFormat.OpenXml.SpreadsheetDocumentType.Workbook))
             {
-                wkbkPart = excelWorkBook.AddWorkbookPart();
+                var wkbkPart = excelWorkBook.AddWorkbookPart();
 
                 excelWorkBook.WorkbookPart.Workbook = new Workbook();
                 excelWorkBook.WorkbookPart.Workbook.Sheets = new Sheets();
@@ -43,6 +43,7 @@ namespace WindowsFormsApp1.Services
 
                 uint id = 1;
 
+                //Set the properties of the sheet
                 Sheet sheet = new Sheet() 
                 { 
                     Id = relationshipId, 
