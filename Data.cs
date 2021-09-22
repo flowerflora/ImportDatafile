@@ -30,17 +30,32 @@ namespace WindowsFormsApp1
             this.lblSearch.Text = "Search Criteria";
         }
 
-        private void btnImport_Click(object sender, EventArgs e)
+        private void btnImportExcel_Click(object sender, EventArgs e)
         {
             //Create Instance of the Import Excel Form
             ImportExcelData frmImport = new ImportExcelData();
 
             //Access the Event which is used by the Delegate
             //Pass in a method on THIS FORM to the ImportExcelData Form
-            //This will cause the Deletegate on the ImportExcewlData Form
+            //This will cause the Deletegate on the ImportExcelData Form
             //To access the method on this Form
             frmImport.UpdateDataGridView += 
                 new ImportExcelData.UpdateDGVHandler(PopulateDataGridView);
+            //Show the form
+            frmImport.ShowDialog();
+        }
+
+        private void btnImportXML_Click(object sender, EventArgs e)
+        {
+            //Create Instance of the Import XML Form
+            ImportXMLData frmImport = new ImportXMLData();
+
+            //Access the Event which is used by the Delegate
+            //Pass in a method on THIS FORM to the ImportXMLData Form
+            //This will cause the Deletegate on the ImportXMLData Form
+            //To access the method on this Form
+            frmImport.UpdateDataGridView +=
+                new ImportXMLData.UpdateDGVHandler(PopulateDataGridView);
             //Show the form
             frmImport.ShowDialog();
         }
@@ -127,6 +142,12 @@ namespace WindowsFormsApp1
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            ExportData export = new ExportData();
+            export.ShowDialog();
         }
     }
 }
