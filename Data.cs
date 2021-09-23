@@ -147,6 +147,7 @@ namespace WindowsFormsApp1
         private void btnExport_Click(object sender, EventArgs e)
         {
             ExportData export = new ExportData();
+            export.Data = (DataTable)this.grdData.DataSource;
             export.ShowDialog();
         }
     }
