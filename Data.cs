@@ -41,6 +41,7 @@ namespace WindowsFormsApp1
             //To access the method on this Form
             frmImport.UpdateDataGridView += 
                 new ImportExcelData.UpdateDGVHandler(PopulateDataGridView);
+            
             //Show the form
             frmImport.ShowDialog();
         }
@@ -56,16 +57,18 @@ namespace WindowsFormsApp1
             //To access the method on this Form
             frmImport.UpdateDataGridView +=
                 new ImportXMLData.UpdateDGVHandler(PopulateDataGridView);
+
             //Show the form
             frmImport.ShowDialog();
         }
 
-        private void PopulateDataGridView(object sender, UpdateDataGridViewEventArgs e)
+        private void PopulateDataGridView(object sender, 
+                                          UpdateDataGridViewEventArgs e)
         {
-            //**********************************************************************
-            //This method is accessed from the ImportExcelData form via the delegate
-            //**********************************************************************
-
+            //*****************************************************
+            //This method is accessed from the ImportExcelData or
+            //ImportXMLData form via the delegate
+            //*****************************************************
             //Create DataTable
             DataTable dt = e.GetDataSet.Tables[0];
 
@@ -81,15 +84,18 @@ namespace WindowsFormsApp1
         {
             //Set the Background Color of the Column Header
             this.grdData.EnableHeadersVisualStyles = false;
-            this.grdData.ColumnHeadersDefaultCellStyle.BackColor = Color.Blue;
-            this.grdData.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            this.grdData.ColumnHeadersDefaultCellStyle.BackColor = 
+                                                        Color.Blue;
+            this.grdData.ColumnHeadersDefaultCellStyle.ForeColor = 
+                                                        Color.White;
 
             //Set the Font for the Column Header
             this.grdData.ColumnHeadersDefaultCellStyle.Font =
                 new Font(new FontFamily("Arial"), 12, FontStyle.Bold);
 
             //Autosize the coulumns
-            this.grdData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            this.grdData.AutoSizeColumnsMode = 
+                DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void FormatDataGridViewColumns()
@@ -147,6 +153,7 @@ namespace WindowsFormsApp1
         private void btnExport_Click(object sender, EventArgs e)
         {
             ExportData export = new ExportData();
+            //Cast the DataGridView as a DataTable
             export.Data = (DataTable)this.grdData.DataSource;
             export.ShowDialog();
         }

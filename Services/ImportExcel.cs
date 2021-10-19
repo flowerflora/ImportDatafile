@@ -9,7 +9,6 @@ namespace WindowsFormsApp1
         public static DataSet GetExcelData(string file)
         {
             DataSet ds = new DataSet();
-            DataTable dt = new DataTable();
 
             FileStream stream = File.Open(file, FileMode.Open, FileAccess.Read);
 

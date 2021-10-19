@@ -15,8 +15,7 @@ namespace WindowsFormsApp1
 
         //Delegate is created to update the DataGridView in the Data Form
         //The "UpdateDataGridViewEventArgs" is a CLASS we create in the Events Folder
-        public delegate void UpdateDGVHandler(object sender, 
-                                              UpdateDataGridViewEventArgs e);
+        public delegate void UpdateDGVHandler(object sender, UpdateDataGridViewEventArgs e);
 
         //Event
         public event UpdateDGVHandler UpdateDataGridView;
@@ -73,16 +72,23 @@ namespace WindowsFormsApp1
 
         private void btnImport_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(this.txtFile.Text.Trim()))
+            {
+                MessageBox.Show("An Excel file must be selected!");
+                return;
+            }
+
             //Change cursor to wait
             Cursor.Current = Cursors.WaitCursor;
 
             DataSet ds = ImportExcel.GetExcelData(_file);
 
             //Event Class which is used with the Delegate
-            UpdateDataGridViewEventArgs args = new UpdateDataGridViewEventArgs(ds);
+            UpdateDataGridViewEventArgs args = 
+                new UpdateDataGridViewEventArgs(ds);
             //Event
             UpdateDataGridView(this, args);
-            
+
             //Return cursor to default
             Cursor.Current = Cursors.Default;
         }

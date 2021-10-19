@@ -15,9 +15,9 @@ namespace WindowsFormsApp1.Events
     {
         private DataSet _ds = null;
 
-        public UpdateDataGridViewEventArgs(DataSet d)
+        public UpdateDataGridViewEventArgs(DataSet ds)
         {
-            _ds = d;
+            _ds = ds;
         }
 
         public DataSet GetDataSet
