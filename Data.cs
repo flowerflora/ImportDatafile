@@ -152,9 +152,19 @@ namespace WindowsFormsApp1
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            ExportData export = new ExportData();
+            DataTable dt = new DataTable();
             //Cast the DataGridView as a DataTable
-            export.Data = (DataTable)this.grdData.DataSource;
+            dt = (DataTable)this.grdData.DataSource;
+            
+            if (dt.Rows.Count == 0)
+            {
+                MessageBox.Show("There is no data to export!");
+                return;
+            }
+
+            ExportData export = new ExportData();
+            //Pass DataTable to the ExportData Form
+            export.Data = dt;
             export.ShowDialog();
         }
     }

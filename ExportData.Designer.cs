@@ -150,6 +150,7 @@ namespace WindowsFormsApp1
             this.rbExcel.Name = "rbExcel";
             this.rbExcel.Size = new System.Drawing.Size(84, 30);
             this.rbExcel.TabIndex = 2;
+            this.rbExcel.TabStop = true;
             this.rbExcel.Text = "Excel";
             this.rbExcel.UseVisualStyleBackColor = true;
             // 

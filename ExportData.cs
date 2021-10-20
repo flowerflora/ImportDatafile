@@ -111,5 +111,10 @@ namespace WindowsFormsApp1
 
             return true;
         }
+
+        private void folderBrowserDialog2_HelpRequest(object sender, EventArgs e)
+        {
+
+        }
     }
 }
