@@ -84,6 +84,7 @@ namespace WindowsFormsApp1
             //Set the DataSource of the DataGridView to the DataTable
             this.grdData.DataSource = ProcessDataSet(_dt);
 
+            //Set record count
             this.lblTotal.Text = _dt.Rows.Count.ToString();
 
             //Format columns in the DataGridView
@@ -108,18 +109,14 @@ namespace WindowsFormsApp1
         private void FormatDataGridViewColumns()
         {
             //Format Column as a Short Date Time. Example -> 9/11/21
-            this.grdData.Columns["Expiry"].DefaultCellStyle.Format =
-                String.Format("d");
+            this.grdData.Columns["Expiry"].DefaultCellStyle.Format = String.Format("d");
             //Align Right
-            this.grdData.Columns["Expiry"].DefaultCellStyle.Alignment = 
-                DataGridViewContentAlignment.MiddleRight;
+            this.grdData.Columns["Expiry"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             //Format Column as Currency
-            this.grdData.Columns["InsuredValue"].DefaultCellStyle.Format =
-                String.Format("C");
+            this.grdData.Columns["InsuredValue"].DefaultCellStyle.Format = String.Format("C");
             //Align Right
-            this.grdData.Columns["InsuredValue"].DefaultCellStyle.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
+            this.grdData.Columns["InsuredValue"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
         }
 
         private DataTable ProcessDataSet(DataTable dt)
