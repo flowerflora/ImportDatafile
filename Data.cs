@@ -8,7 +8,7 @@ namespace WindowsFormsApp1
 {
     public partial class Data : Form
     {
-        private DataSet _ds = new DataSet();
+        private DataTable _dt = new DataTable();
 
         public Data()
         {
@@ -30,6 +30,12 @@ namespace WindowsFormsApp1
 
             //Labels
             this.lblSearch.Text = "Search Criteria";
+
+            //Set Radio Button Default
+            this.rbLocation.Checked = true;
+
+            //Set record count
+            this.lblTotal.Text = "0";
         }
 
         private void btnImportExcel_Click(object sender, EventArgs e)
@@ -41,8 +47,7 @@ namespace WindowsFormsApp1
             //Pass in a method on THIS FORM to the ImportExcelData Form
             //This will cause the Deletegate on the ImportExcelData Form
             //To access the method on this Form
-            frmImport.UpdateDataGridView += 
-                new ImportExcelData.UpdateDGVHandler(PopulateDataGridView);
+            frmImport.UpdateDataGridView += new ImportExcelData.UpdateDGVHandler(PopulateDataGridView);
             
             //Show the form
             frmImport.ShowDialog();
@@ -57,15 +62,13 @@ namespace WindowsFormsApp1
             //Pass in a method on THIS FORM to the ImportXMLData Form
             //This will cause the Deletegate on the ImportXMLData Form
             //To access the method on this Form
-            frmImport.UpdateDataGridView +=
-                new ImportXMLData.UpdateDGVHandler(PopulateDataGridView);
+            frmImport.UpdateDataGridView += new ImportXMLData.UpdateDGVHandler(PopulateDataGridView);
 
             //Show the form
             frmImport.ShowDialog();
         }
 
-        private void PopulateDataGridView(object sender, 
-                                          UpdateDataGridViewEventArgs e)
+        private void PopulateDataGridView(object sender, UpdateDataGridViewEventArgs e)
         {
             //*****************************************************
             //This method is accessed from the ImportExcelData or
@@ -73,13 +76,15 @@ namespace WindowsFormsApp1
             //*****************************************************
 
             //First we want to store the DataSet from the Import Process
-            _ds = e.GetDataSet;
+            //_ds = e.GetDataSet;
 
             //Create DataTable
-            DataTable dt = e.GetDataSet.Tables[0];
+            _dt = e.GetDataSet.Tables[0];
 
             //Set the DataSource of the DataGridView to the DataTable
-            this.grdData.DataSource = ProcessDataSet(dt);
+            this.grdData.DataSource = ProcessDataSet(_dt);
+
+            this.lblTotal.Text = _dt.Rows.Count.ToString();
 
             //Format columns in the DataGridView
             FormatDataGridViewColumns();
@@ -90,18 +95,14 @@ namespace WindowsFormsApp1
         {
             //Set the Background Color of the Column Header
             this.grdData.EnableHeadersVisualStyles = false;
-            this.grdData.ColumnHeadersDefaultCellStyle.BackColor = 
-                                                        Color.Blue;
-            this.grdData.ColumnHeadersDefaultCellStyle.ForeColor = 
-                                                        Color.White;
+            this.grdData.ColumnHeadersDefaultCellStyle.BackColor = Color.Blue;
+            this.grdData.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
 
             //Set the Font for the Column Header
-            this.grdData.ColumnHeadersDefaultCellStyle.Font =
-                new Font(new FontFamily("Arial"), 12, FontStyle.Bold);
+            this.grdData.ColumnHeadersDefaultCellStyle.Font = new Font(new FontFamily("Arial"), 12, FontStyle.Bold);
 
             //Autosize the coulumns
-            this.grdData.AutoSizeColumnsMode = 
-                DataGridViewAutoSizeColumnsMode.AllCells;
+            this.grdData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void FormatDataGridViewColumns()
@@ -148,7 +149,72 @@ namespace WindowsFormsApp1
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            //Get the current data from the DataGrid
+            DataTable dt = (DataTable)this.grdData.DataSource;
 
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                MessageBox.Show("There is no data to search");
+                return;
+            }
+
+            string field = string.Empty;
+
+            if (rbLocation.Checked)
+            {
+                field = "Location";
+            }
+            else if (rbState.Checked)
+            {
+                field = "State";
+            }
+            else if (rbRegion.Checked)
+            {
+                field = "Region";
+            }
+            else if (rbConstruction.Checked)
+            {
+                field = "Construction";
+            }
+            else if (rbBusinessType.Checked)
+            {
+                field = "BusinessType";
+            }
+            else if (rbEarthquake.Checked)
+            {
+                field = "Earthquake";
+            }
+            else if (rbFlood.Checked)
+            {
+                field = "Flood";
+            }
+
+            string searchCriteria = this.txtSearch.Text.Trim();
+
+            //Search for data
+            //Returns a DataRow
+            var filtered = dt.AsEnumerable().Where(x => x.Field<string>(field) == searchCriteria);
+
+            //Convert to DataTable
+            try
+            {
+                //If filtered has no rows an error will occur when copying to a datatable
+                dt = filtered.CopyToDataTable();
+                //Copy dataTable to DataGrid
+                this.grdData.DataSource = dt;
+                //Set record count
+                this.lblTotal.Text = dt.Rows.Count.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Search data was not found!");
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            if (!(_dt == null) && _dt.Rows.Count > 0)
+                this.grdData.DataSource = _dt;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -162,7 +228,7 @@ namespace WindowsFormsApp1
             //Cast the DataGridView as a DataTable
             dt = (DataTable)this.grdData.DataSource;
             
-            if (dt.Rows.Count == 0)
+            if (dt == null || dt.Rows.Count == 0)
             {
                 MessageBox.Show("There is no data to export!");
                 return;

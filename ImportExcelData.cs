@@ -84,8 +84,7 @@ namespace WindowsFormsApp1
             DataSet ds = ImportExcel.GetExcelData(_file);
 
             //Event Class which is used with the Delegate
-            UpdateDataGridViewEventArgs args = 
-                new UpdateDataGridViewEventArgs(ds);
+            UpdateDataGridViewEventArgs args = new UpdateDataGridViewEventArgs(ds);
             //Event
             UpdateDataGridView(this, args);
 
