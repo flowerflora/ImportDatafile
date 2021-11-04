@@ -38,6 +38,7 @@ namespace WindowsFormsApp1
             this.btnExport = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnImportXML = new System.Windows.Forms.Button();
+            this.gbCriteria = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +76,7 @@ namespace WindowsFormsApp1
             // 
             this.grdData.AllowUserToOrderColumns = true;
             this.grdData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdData.Location = new System.Drawing.Point(20, 171);
+            this.grdData.Location = new System.Drawing.Point(20, 226);
             this.grdData.Name = "grdData";
             this.grdData.Size = new System.Drawing.Size(694, 150);
             this.grdData.TabIndex = 3;
@@ -96,7 +97,7 @@ namespace WindowsFormsApp1
             // 
             this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExport.ForeColor = System.Drawing.Color.Purple;
-            this.btnExport.Location = new System.Drawing.Point(21, 328);
+            this.btnExport.Location = new System.Drawing.Point(21, 383);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(75, 34);
             this.btnExport.TabIndex = 5;
@@ -107,7 +108,7 @@ namespace WindowsFormsApp1
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(639, 328);
+            this.btnClose.Location = new System.Drawing.Point(639, 383);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 34);
             this.btnClose.TabIndex = 6;
@@ -127,11 +128,21 @@ namespace WindowsFormsApp1
             this.btnImportXML.UseVisualStyleBackColor = true;
             this.btnImportXML.Click += new System.EventHandler(this.btnImportXML_Click);
             // 
+            // gbCriteria
+            // 
+            this.gbCriteria.Location = new System.Drawing.Point(21, 173);
+            this.gbCriteria.Name = "gbCriteria";
+            this.gbCriteria.Size = new System.Drawing.Size(693, 47);
+            this.gbCriteria.TabIndex = 8;
+            this.gbCriteria.TabStop = false;
+            this.gbCriteria.Text = "Criteria";
+            // 
             // Data
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 371);
+            this.ClientSize = new System.Drawing.Size(726, 426);
+            this.Controls.Add(this.gbCriteria);
             this.Controls.Add(this.btnImportXML);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnExport);
@@ -160,6 +171,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnImportXML;
+        private System.Windows.Forms.GroupBox gbCriteria;
     }
 }
 

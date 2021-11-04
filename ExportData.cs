@@ -22,7 +22,6 @@ namespace WindowsFormsApp1
             {
                 _dt = value;
             }
-
         }
 
         private void ExportData_Load(object sender, EventArgs e)
@@ -63,7 +62,6 @@ namespace WindowsFormsApp1
                 file += ".xml";
                 _success = ExportXML.ExportXMLData(_dt, file);
             }
-
 
              if (_success)
             {

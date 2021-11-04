@@ -8,6 +8,8 @@ namespace WindowsFormsApp1
 {
     public partial class Data : Form
     {
+        private DataSet _ds = new DataSet();
+
         public Data()
         {
             InitializeComponent();
@@ -69,6 +71,10 @@ namespace WindowsFormsApp1
             //This method is accessed from the ImportExcelData or
             //ImportXMLData form via the delegate
             //*****************************************************
+
+            //First we want to store the DataSet from the Import Process
+            _ds = e.GetDataSet;
+
             //Create DataTable
             DataTable dt = e.GetDataSet.Tables[0];
 
