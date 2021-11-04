@@ -152,6 +152,7 @@ namespace WindowsFormsApp1
             //Get the current data from the DataGrid
             DataTable dt = (DataTable)this.grdData.DataSource;
 
+            //Ensure that there is data to filter
             if (dt == null || dt.Rows.Count == 0)
             {
                 MessageBox.Show("There is no data to search");
@@ -159,7 +160,9 @@ namespace WindowsFormsApp1
             }
 
             string field = string.Empty;
+            string searchCriteria = this.txtSearch.Text.Trim();
 
+            //Determine the search criteria to set the column to search
             if (rbLocation.Checked)
             {
                 field = "Location";
@@ -189,15 +192,14 @@ namespace WindowsFormsApp1
                 field = "Flood";
             }
 
-            string searchCriteria = this.txtSearch.Text.Trim();
-
-            //Search for data
-            //Returns a DataRow
+            //Search for data - Returns a DataRow
             var filtered = dt.AsEnumerable().Where(x => x.Field<string>(field) == searchCriteria);
 
-            //Convert to DataTable
             try
             {
+                //********************
+                //Convert to DataTable
+                //********************
                 //If filtered has no rows an error will occur when copying to a datatable
                 dt = filtered.CopyToDataTable();
                 //Copy dataTable to DataGrid
@@ -213,9 +215,11 @@ namespace WindowsFormsApp1
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            //Reset to original imported data
             if (!(_dt == null) && _dt.Rows.Count > 0)
                 this.grdData.DataSource = _dt;
 
+            //Set record count
             this.lblTotal.Text = _dt.Rows.Count.ToString();
         }
 
@@ -227,6 +231,7 @@ namespace WindowsFormsApp1
         private void btnExport_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
+
             //Cast the DataGridView as a DataTable
             dt = (DataTable)this.grdData.DataSource;
             
