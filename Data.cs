@@ -215,6 +215,8 @@ namespace WindowsFormsApp1
         {
             if (!(_dt == null) && _dt.Rows.Count > 0)
                 this.grdData.DataSource = _dt;
+
+            this.lblTotal.Text = _dt.Rows.Count.ToString();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
