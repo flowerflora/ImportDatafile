@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1.Models
 {
-    public class Titles
+    public static class Titles
     {
         public static string MessageBoxTitle { get; } = "Import/Export App";
     }

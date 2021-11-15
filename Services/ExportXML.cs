@@ -2,7 +2,7 @@
 
 namespace WindowsFormsApp1.Services
 {
-    public class ExportXML
+    public static class ExportXML
     {
         public static bool ExportXMLData(DataTable dt, string file)
         {

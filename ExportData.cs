@@ -38,7 +38,10 @@ namespace WindowsFormsApp1
             this.MinimizeBox = false;
 
             //TextBox
-            this.txtLocation.Enabled = false;            
+            this.txtLocation.Enabled = false;
+
+            //Raddio Button
+            this.rbExcel.Checked = true;
         }
 
         private void btnExport_Click(object sender, EventArgs e)
@@ -55,7 +58,7 @@ namespace WindowsFormsApp1
             if (this.rbExcel.Checked)
             {
                 file += ".xlsx";
-                //_success = ExportExcel.ExportExcelData(_dt, file);
+                _success = ExportExcel.ExportExcelData(_dt, file);
             }
             else if (this.rbXML.Checked)
             {
@@ -63,18 +66,20 @@ namespace WindowsFormsApp1
                 _success = ExportXML.ExportXMLData(_dt, file);
             }
 
+            string result = string.Empty;
+
              if (_success)
             {
-                MessageBox.Show("Export " + file + " was successful!",
-                                Titles.MessageBoxTitle,
-                                MessageBoxButtons.OK);
+                result = " was successful!";
             }
             else
             {
-                MessageBox.Show("Export " + file + " failed!",
-                                Titles.MessageBoxTitle,
-                                MessageBoxButtons.OK);
+                result = " failed!";
             }
+
+            MessageBox.Show("Export " + file + result,
+                            Titles.MessageBoxTitle,
+                            MessageBoxButtons.OK);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -85,9 +90,7 @@ namespace WindowsFormsApp1
         private void btnDirectory_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
-            {
                 this.txtLocation.Text = folderBrowserDialog1.SelectedPath;
-            }
         }
 
         private bool PerformValidation()
@@ -108,11 +111,6 @@ namespace WindowsFormsApp1
             }
 
             return true;
-        }
-
-        private void folderBrowserDialog2_HelpRequest(object sender, EventArgs e)
-        {
-
         }
     }
 }

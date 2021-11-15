@@ -18,6 +18,9 @@ namespace WindowsFormsApp1
             //Reading from a OpenXml Excel file (2007 format; *.xlsx)
             IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
 
+            //Fix Encoding Error
+            //System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+
             //Get DataSet - The spreadsheet will be created in the ds.Tables
             ds = excelReader.AsDataSet();
 
