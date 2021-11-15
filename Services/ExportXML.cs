@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace WindowsFormsApp1.Services
+namespace ImportExportData.Services
 {
     public static class ExportXML
     {

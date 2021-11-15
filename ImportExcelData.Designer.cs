@@ -1,5 +1,5 @@
 ﻿
-namespace WindowsFormsApp1
+namespace ImportExportData
 {
     partial class ImportExcelData
     {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using WindowsFormsApp1.Models;
-using WindowsFormsApp1.Services;
+using ImportExportData.Models;
+using ImportExportData.Services;
 
-namespace WindowsFormsApp1
+namespace ImportExportData
 {
     public partial class ExportData : Form
     {

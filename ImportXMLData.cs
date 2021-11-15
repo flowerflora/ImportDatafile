@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using WindowsFormsApp1.Events;
-using WindowsFormsApp1.Services;
+using ImportExportData.Events;
+using ImportExportData.Services;
 
-namespace WindowsFormsApp1
+namespace ImportExportData
 {
     public partial class ImportXMLData : Form
     {
