@@ -84,7 +84,7 @@ namespace ImportExportData
             this.RemoveLeadingTrailingSpaces();
 
             //2nd Set the DataSource of the DataGridView to the DataTable "_dt"
-            this.grdData.DataSource = ProcessDataSet(_dt);
+            this.grdData.DataSource = _dt = ProcessDataSet(_dt);
 
             //Set record count
             this.lblTotal.Text = _dt.Rows.Count.ToString();
@@ -104,24 +104,7 @@ namespace ImportExportData
             };
 
             _dt = dataRows.CopyToDataTable();
-
-            /*
-            foreach (DataRow row in _dt.Rows)
-                {
-                    
-                    //_value = row[5].ToString();
-
-                    //row[5] = string.Format("{0:#,###,###,##0}", amt);
-                }
-            */
-
             _dt.AcceptChanges();
-            /*
-            DataTable newDT = (from q in _dt.Select
-                               let x = String.Join(",", from p In _dt.Columns.Cast(DataColumn) 
-                               Select If(String.IsNullOrWhiteSpace(q(p).ToString), "", q(p).ToString.Trim)) 
-                               Select dt.Rows.Add(x.Split({ ","},StringSplitOptions.None))).ToArray.CopyToDataTable
-            */
         }
 
         private void FormatDataGridViewColumnHeaders()
