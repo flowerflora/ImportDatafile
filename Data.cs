@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using ImportExportData.Events;
 
@@ -78,18 +79,49 @@ namespace ImportExportData
             //First we want to store the DataSet from the Import Process
             //_ds = e.GetDataSet;
 
-            //Create DataTable
+            //1st Process the DataSet then assign to "_dt"
             _dt = e.GetDataSet.Tables[0];
+            this.RemoveLeadingTrailingSpaces();
 
-            //Set the DataSource of the DataGridView to the DataTable
+            //2nd Set the DataSource of the DataGridView to the DataTable "_dt"
             this.grdData.DataSource = ProcessDataSet(_dt);
 
             //Set record count
             this.lblTotal.Text = _dt.Rows.Count.ToString();
 
             //Format columns in the DataGridView
-            FormatDataGridViewColumns();
-            FormatDataGridViewColumnHeaders();
+            this.FormatDataGridViewColumns();
+            this.FormatDataGridViewColumnHeaders();
+        }
+
+        private void RemoveLeadingTrailingSpaces()
+        {
+            var dataRows = _dt.AsEnumerable();
+            foreach (var row in dataRows)
+            {
+                var cellList = row.ItemArray.ToList();
+                row.ItemArray = cellList.Select(x => x.ToString().Trim()).ToArray();
+            };
+
+            _dt = dataRows.CopyToDataTable();
+
+            /*
+            foreach (DataRow row in _dt.Rows)
+                {
+                    
+                    //_value = row[5].ToString();
+
+                    //row[5] = string.Format("{0:#,###,###,##0}", amt);
+                }
+            */
+
+            _dt.AcceptChanges();
+            /*
+            DataTable newDT = (from q in _dt.Select
+                               let x = String.Join(",", from p In _dt.Columns.Cast(DataColumn) 
+                               Select If(String.IsNullOrWhiteSpace(q(p).ToString), "", q(p).ToString.Trim)) 
+                               Select dt.Rows.Add(x.Split({ ","},StringSplitOptions.None))).ToArray.CopyToDataTable
+            */
         }
 
         private void FormatDataGridViewColumnHeaders()

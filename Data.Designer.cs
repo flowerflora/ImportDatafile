@@ -172,7 +172,7 @@ namespace ImportExportData
             // rbFlood
             // 
             this.rbFlood.AutoSize = true;
-            this.rbFlood.Location = new System.Drawing.Point(432, 19);
+            this.rbFlood.Location = new System.Drawing.Point(472, 19);
             this.rbFlood.Name = "rbFlood";
             this.rbFlood.Size = new System.Drawing.Size(51, 17);
             this.rbFlood.TabIndex = 6;
@@ -183,7 +183,7 @@ namespace ImportExportData
             // rbEarthquake
             // 
             this.rbEarthquake.AutoSize = true;
-            this.rbEarthquake.Location = new System.Drawing.Point(346, 19);
+            this.rbEarthquake.Location = new System.Drawing.Point(386, 19);
             this.rbEarthquake.Name = "rbEarthquake";
             this.rbEarthquake.Size = new System.Drawing.Size(80, 17);
             this.rbEarthquake.TabIndex = 5;
@@ -196,10 +196,10 @@ namespace ImportExportData
             this.rbBusinessType.AutoSize = true;
             this.rbBusinessType.Location = new System.Drawing.Point(290, 19);
             this.rbBusinessType.Name = "rbBusinessType";
-            this.rbBusinessType.Size = new System.Drawing.Size(50, 17);
+            this.rbBusinessType.Size = new System.Drawing.Size(94, 17);
             this.rbBusinessType.TabIndex = 4;
             this.rbBusinessType.TabStop = true;
-            this.rbBusinessType.Text = "State";
+            this.rbBusinessType.Text = "Business Type";
             this.rbBusinessType.UseVisualStyleBackColor = true;
             // 
             // rbConstruction
